@@ -1,15 +1,15 @@
 import './App.css';
-
+import data from './data/data.js'
 
 
 function App() {
   return (
     <div className="App">
       <div className='container'>
-        <img className="image" src='https://i.scdn.co/image/ab67616d00001e02e8b066f70c206551210d902b' alt="bohemian"></img>
-        <p>Bohemian Rhapsody (The Original Soundtrack)</p>
-        <p>Queen</p>
-        <button type='button' onClick="alert('select')">select</button>
+        <img className="image" src={data.album.images[1].url} alt="bohemian"></img>
+        <p>{data.album.name}</p>
+        <p>{data.album.artists[0].name}</p>
+        <button type='button' onClick="alert('select')">Select</button>
       </div>
     </div>
   );
