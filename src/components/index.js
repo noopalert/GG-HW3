@@ -1,14 +1,18 @@
-import data from '../data/data';
-function Gif (){
+import './style.css';
+function Gif (props){
     return(
-        <div className="App">
-        <div className='container'>
-            <img className="image" src={data.album.images[1].url} alt="bohemian"></img>
-            <p>{data.album.name}</p>
-            <p>{data.album.artists[0].name}</p>
-            <button type='button' onClick="alert('select')">Select</button>
+        <div className="play-contai">
+            <img src={props.url} alt={props.alt} />
+            <div className="play-list">
+                <p>{props.nameAlbum}</p>
+                <p>{props.nameArtist}</p>
+            </div>
+            <div className="btn">
+                <button className="btn-select">
+                    Select
+                </button>
+            </div>
         </div>
-    </div>
     );
 }
 export default Gif;
