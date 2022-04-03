@@ -8,8 +8,8 @@ function Gif (props){
                 <p>{props.nameArtist}</p>
             </div>
             <div className="btn">
-                <button className="btn-select">
-                    Select
+                <button className="btn-select" type="button" onClick={()=> props.onClick (props.isSelected)}>
+                    {props.nameOfButton}
                 </button>
             </div>
         </div>

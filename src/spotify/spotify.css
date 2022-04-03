@@ -1,7 +1,30 @@
-.btn-wrapper {
+.spt-track {
   text-align: center;
-  margin-bottom: 15px;
+  margin:25px 0; 
 }
-.btn-login {
-  text-align: center;
+.btn-search{
+  margin:15px 0;
+}
+.btn-fix{
+  padding:5px 20px;
+  background-color:#239b76 ;
+  opacity: 0.6;
+  border-radius: 4px;
+  color: white;
+}
+.btn-fix:hover{
+  opacity: 1;
+}
+.title{
+  background-color: bisque;
+  border: 1px solid black;
+  border-radius: 4px;
+  opacity: 0.6;
+  padding:5px 15px ;
+}
+.login{
+  margin-bottom: 10px;
+}
+.title:hover{
+  opacity: 1;
 }
