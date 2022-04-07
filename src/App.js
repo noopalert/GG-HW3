@@ -1,17 +1,17 @@
 import './App.css'
-// import FormPlaylist from './components/playlistform';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
 import Index from './spotify/Index.js'
-// import Gif from '../src/components/index';
-// import data from './data';
-// import FormPlaylist from './components/playlist/playlistform';
+
 
 
 function App() {
   return (
-    <div className='App'>
+    <Provider store={store}>
+     <div className='App'>
       <Index/>
-      {/* <FormPlaylist/> */}
-    </div>
+     </div>
+    </Provider>
   )
 }
 

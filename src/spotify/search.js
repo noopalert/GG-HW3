@@ -1,20 +1,19 @@
-import react, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
-function useSearch(){
+export default function useSearch(){
     const [isLogin, setIsLogin] = useState(false);
     const [savedToken, setSavedToken] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResult, setSearchResult] = useState([]);
-    const BASE_URL = "https://api.spotify.com/v1/search/";
-    const handleChange = (e) =>{
-        setSearchQuery(e.target.value);
-    }
+    const handleChange = (event) =>{
+        setSearchQuery(event.target.value);
+    };
 
-    const onSearch = (e) =>{
+    const onSearch = (event) =>{
         if (isLogin === true && savedToken != null){
             axios 
-                .get(BASE_URL,{
+                .get("https://api.spotify.com/v1/search/",{
                     headers:{
                         Authorization: `Bearer ${savedToken}`,
                     },
@@ -34,7 +33,7 @@ function useSearch(){
         }else {
             alert("login dulu");
         }
-        e.preventDefault();
+        event.preventDefault();
     };
 
     useEffect(()=>{
@@ -51,5 +50,3 @@ function useSearch(){
         onSearch,
     };
 }
-
-export default useSearch;
