@@ -3,10 +3,12 @@ import Gif from "../components";
 import '../spotify/spotify.css';
 import searchUse from "./search";
 import FormPlaylist from "../components/playlist/playlistform";
-import SearchForm from "../components/search";
-// import Cardsong from "../components/cardsong";
+import SearchForm from "../components/search/search";
+import Cardsong from "../components/cardsong/cardsong";
 import axios from "axios";
-import Cardsong from "../components/cardsong";
+import { useSelector, useDispatch } from "react-redux";
+import { saveToken } from "../Redux/saved-token";
+
 
 const CLIENT_ID = process.env.REACT_APP_SPOTIFY_KEY;
 const REDIRECT_URI = "http://localhost:3000/callback/";
@@ -14,13 +16,13 @@ const SCOPE = "playlist-modify-private";
 const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
 const AUTH_URL = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=token&show_dialog=true`;
 const BASE_URL = "https://api.spotify.com/v1";
-const access_token = new URLSearchParams(window.location.hash).get(
+const get_token = new URLSearchParams(window.location.hash).get(
   "#access_token"
 );
 
 
 function Index(){
-  const {searchResult, handleChange,onSearch } = searchUse();
+  const {searchResult, handleChange, onSearch } = searchUse();
   const [newPlaylist, setNewPlaylist] = useState({
     title:"",
     description:"",
@@ -36,8 +38,12 @@ function Index(){
   let playlistId="";
   let newPlaylistId="";
 
+  const access_token = useSelector((state)=> state.token.value);
+  const dispatch = useDispatch();
+  dispatch(saveToken(get_token));
   
-  
+  console.log("access_token:", access_token);
+
   const handleSelected = (uri)  =>{
     setIsSelected((oldArray) => oldArray.filter((id)=> id !== uri));
     console.log(`present id = ${isSelected}`);
@@ -72,7 +78,7 @@ function Index(){
     } 
   };
 
-  const handleView = async (event) => {
+  const handleView = (event) => {
     event.preventDefault();
     newPlaylistId = check.playlistId.replace("spotify:playlist:","");
     viewPlaylist();
@@ -82,10 +88,11 @@ function Index(){
   };
 
   const getUserId = async () => {
+    console.log("access_token user = ", access_token);
     try{
       let user = await axios.get(`${BASE_URL}/me`,{
         headers:{
-          Authorization: "Bearer" + access_token,
+          Authorization : "Bearer " + access_token,
           "Content-Type": "application/json",
         },
       });
@@ -108,7 +115,7 @@ function Index(){
         },
         {
           headers:{
-            Authorization: "Bearer" + access_token,
+            Authorization: "Bearer " + access_token,
             "Content-Type": "application/json",
           },
         }
@@ -126,14 +133,14 @@ function Index(){
   const addSongPlaylist = async () => {
     try{
       await axios.post(
-        `${BASE_URL}/playlists/$${newPlaylistId}`,
+        `${BASE_URL}/playlists/${newPlaylistId}/tracks`,
         {
           uris:isSelected,
           position:0,
         },
         {
           headers:{
-            Authorization: "Bearer" + access_token,
+            Authorization: "Bearer " + access_token,
             "Content-Type": "application/json",
           },
         }
@@ -148,7 +155,7 @@ function Index(){
       let view = await axios.get(`${BASE_URL}/playlists/${newPlaylistId}`,
       {
         headers:{
-          Authorization:"Bearer" + access_token,
+          Authorization: "Bearer " + access_token,
           "Content-Type": "application/json",
         },
       }
@@ -173,7 +180,7 @@ function Index(){
         <div className="crt-playlist">
           <FormPlaylist
             onCreate={handlePlaylist}
-            handleChange={handleForm}
+            handleChangeTitle={handleForm}
             handleChangeDesc={handleForm}
           />
         </div>
