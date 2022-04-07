@@ -1,20 +1,15 @@
-import Gif from "../components/index"
+// import Gif from "../components/index"
 
-function Cardsong(){
-    return(
-        <div className="cardsong">
-            {data.map((item, indx)=>{
-                return(
-                    <Gif
-                        url={item.album.images[1].url}
-                        nameAlbum={item.album.name}
-                        nameArtist={item.artists[0].name}
-                        alt="Image not loaded"
-                        key={index}
-                    />
-                );
-            })}
+function Cardsong(props) {
+    return (
+      <div className="Card">
+        <img src={props.url} alt={props.alt}></img>
+        <div className="text-component">
+          <p className="album">{props.albumName}</p>
+          <p>{props.artistName}</p>
         </div>
+      </div>
     );
-}
-export default Cardsong;
+  }
+  
+  export default Cardsong;
