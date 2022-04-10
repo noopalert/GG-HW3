@@ -8,6 +8,7 @@ import Cardsong from "../components/cardsong/cardsong";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { saveToken } from "../Redux/saved-token";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
 const CLIENT_ID = process.env.REACT_APP_SPOTIFY_KEY;
@@ -169,12 +170,18 @@ function Index(){
     }
   };
 
+  const isLoggedOut = ()=>{
+    localStorage.removeItem("isLoggedIn");
+    window.location = "http://localhost:3000/";
+  }
+
   return (
     <div className="spt-track">
-      <div className="login" >
-          <a className="title" href={AUTH_URL}>
+      <div className="logout" >
+          {/* <a className="title" href={AUTH_URL}>
             Press to login
-          </a>
+          </a> */}
+          <button onClick={isLoggedOut}>logout</button>
       </div>
       <div className="form-view">
         <div className="crt-playlist">
