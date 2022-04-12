@@ -18,7 +18,7 @@ function Routes(){
                     {isLoggedIn ? (
                         <Index/>
                     ) : (
-                        <Redirect exact from="/create-playlisy" to="/"/>
+                        <Redirect exact from="/create-playlist" to="/"/>
                     )}
                 </Route>
                 <Route exact path="/">
