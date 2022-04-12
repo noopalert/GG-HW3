@@ -1,7 +1,3 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { saveToken } from "../../Redux/saved-token";
-
 function Home (){
     const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
     const CLIENT_ID = process.env.REACT_APP_SPOTIFY_KEY;
@@ -16,8 +12,8 @@ function Home (){
 
     return(
         <div className="Home">
-            <p className="title">Klik for Login</p>
-            <button onClick={isAuth}>Login</button>
+            <p>Klik for Login</p>
+            <button onClick={isAuth} className="title">Login</button>
         </div>
     )
 }
