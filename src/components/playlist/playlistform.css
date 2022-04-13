@@ -1,5 +1,14 @@
 .form-wrapper{
     text-align: center;
+    color: white;
+    border: 1px solid white;
+    margin: 1em 20em;
+    border-radius: 5px;
+    background-color: black;
+    opacity: 0.6;
+}
+.form-wrapper:hover{
+    opacity: 1;
 }
 .btn-select{
     margin-bottom: 10px;

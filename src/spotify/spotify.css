@@ -16,11 +16,12 @@
   opacity: 1;
 }
 .title{
-  background-color: bisque;
+  background-color: #239b76;
   border: 1px solid black;
   border-radius: 4px;
   opacity: 0.6;
   padding:5px 15px ;
+  color: white;
 }
 .login{
   margin-bottom: 10px;
@@ -28,3 +29,29 @@
 .title:hover{
   opacity: 1;
 }
+.btn-logout{
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 4px;
+  opacity: 0.6;
+  padding:5px 15px ;
+  color: white;
+}
+.btn-logout:hover{
+  opacity: 1;
+}
+.btn-viewplaylist{
+  background-color: #239b76;
+  border: 1px solid black;
+  border-radius: 4px;
+  opacity: 0.6;
+  padding:5px 15px ;
+  color: white;
+  margin: 1em 0;
+}
+.btn-viewplaylist:hover{
+  opacity: 1;
+}
+/* .playlist-wrapper{
+  color: white;
+} */
