@@ -33,10 +33,11 @@ const FormPlaylist = ({
                         required
                     ></input>
                 </div>
+                <button type="submit" value="submit" className='btn-select'>
+                    Create
+                </button>
             </div>
-            <button type="submit" value="submit" className='btn-select'>
-                Create
-            </button>
+            
         </form>
     );
 }

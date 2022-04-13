@@ -5,9 +5,7 @@ function Gif (props){
             <img src={props.url} alt={props.alt} />
             <div className="play-list">
                 <p>{props.nameAlbum}</p>
-                <p>{props.nameArtist}</p>
-            </div>
-            <div className="btn">
+                <p>{props.nameArtist}</p><br></br>
                 <button className="btn-select" type="button" onClick={()=> props.onClick (props.isSelected)}>
                     {props.nameOfButton}
                 </button>

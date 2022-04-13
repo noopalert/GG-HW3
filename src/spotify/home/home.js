@@ -1,3 +1,5 @@
+import "../home/home.css"
+
 function Home (){
     const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
     const CLIENT_ID = process.env.REACT_APP_SPOTIFY_KEY;
@@ -11,7 +13,7 @@ function Home (){
     };
 
     return(
-        <div className="Home">
+        <div className="home">
             <p>Klik for Login</p>
             <button onClick={isAuth} className="title">Login</button>
         </div>

@@ -1,4 +1,5 @@
 // import Gif from "../components/index"
+import "../cardsong/cardsong.css";
 
 function Cardsong(props) {
     return (

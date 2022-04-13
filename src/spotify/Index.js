@@ -181,7 +181,7 @@ function Index(){
           {/* <a className="title" href={AUTH_URL}>
             Press to login
           </a> */}
-          <button onClick={isLoggedOut}>logout</button>
+          <button onClick={isLoggedOut} className="btn-logout">logout</button>
       </div>
       <div className="form-view">
         <div className="crt-playlist">
@@ -192,7 +192,7 @@ function Index(){
           />
         </div>
         <div className="view-playlist">
-          <button type="submit" onClick={handleView}>
+          <button type="submit" onClick={handleView} className="btn-viewplaylist">
             View playlist
           </button>
         </div>
