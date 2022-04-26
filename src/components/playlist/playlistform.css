@@ -10,15 +10,11 @@
 .form-wrapper:hover{
     opacity: 1;
 }
-.btn-select{
+.btn-playlist{
     margin-bottom: 10px;
-    background-color: #239b76;
-    color: white;
     opacity: 0.7;
-    padding: 5px 24px;
-    border-radius: 4px;
 }
-.btn-select:hover{
+.btn-playlist:hover{
   opacity: 1;
 }
 .form-desc{
