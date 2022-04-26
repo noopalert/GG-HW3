@@ -1,4 +1,5 @@
 import './playlistform.css';
+import { Button } from '@chakra-ui/button';
 
 const FormPlaylist = ({
     onCreate, 
@@ -33,9 +34,28 @@ const FormPlaylist = ({
                         required
                     ></input>
                 </div>
-                <button type="submit" value="submit" className='btn-select'>
+                {/* <button type="submit" value="submit" className='btn-select'>
                     Create
-                </button>
+                </button> */}
+                <Button 
+                type='submit'
+                value='submit'
+                className='btn-playlist'
+                cursor='pointer'
+                variant='solid'
+                borderRadius='4px'
+                color='white'
+                padding='5px 24px'
+                _hover={{ bg: '#239b76' }}
+                _active={{
+                    bg:'#239b76',
+                    transform: 'scale(0.98)'
+                }}
+                bg='#239b76'
+                >
+                Create
+                </Button>
+
             </div>
             
         </form>
